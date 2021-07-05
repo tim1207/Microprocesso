@@ -16,3 +16,17 @@ int main(int argc,char *argv[]){
     }
     return input;
 }
+
+
+
+
+
+static int demo_init(void){
+    if (register_chrdev(MAJOR_NUM, MODULE_NAME, &drv_fops) <0)
+    {
+        printk("<1>%s: can't get major %d\n", MODULE_NAME, MAJOR_NUM);
+        return (-EBUSY);
+    }
+    printk("<1>%s: started\n", MODULE_NAME);
+    return O;
+}
